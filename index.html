@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS assignment 1</title>
+</head>
+<body>
+    
+
+    <script>
+
+//Quiz no -1 ---Reverse a string without using the built-in reverse() method.
+let fulName = "Mahrukh M.Waseem";
+let reversed = "";
+for (let i = fulName.length - 1; i >= 0; i--) {
+    reversed += fulName[i];
+}
+console.log(reversed);
+
+//Quiz no -2 ---Count the number of vowels in a given string.
+let str = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var counter = 0;
+for (let i = 0; i < str.length; i++) {
+    if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u') {
+        counter++;
+    }
+}
+console.log(counter)
+
+//Quiz no -3 ---Convert the first letter of each word in a sentence to uppercase.
+var sentence = "mahrukh"
+var firstChar = sentence.slice(0, 1);
+var otherChar = sentence.slice(1);
+firstChar = firstChar.toUpperCase();
+otherChar = otherChar.toLowerCase();
+var sentence = firstChar + otherChar;
+console.log(sentence);
+
+//Quiz no -4 ---Check if a string is a palindrome. 
+let checkPalindrome = (string) => {
+    return string === string.split("").reverse().join("");
+};
+
+console.log("Is Palindrome? : " + checkPalindrome("mahrukh"));
+console.log("Is Palindrome?: " + checkPalindrome("noon"));
+
+//Quiz no -5 ---Find the sum of all positive numbers in an array.
+var numbers = [1, 2, 3, 4, -5, -6];
+
+var sum = 0;
+
+for (var i = 0; i < numbers.length; ++i) {
+    if (numbers[i] > 0) {
+        sum += numbers[i];
+    }
+}
+console.log(sum);
+
+//Quiz no -6 ---Find the index of the first occurrence of a specific element in an array
+function findIndex(arr, element) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+            return i;
+        }
+    }
+    return -1;
+}
+console.log(findIndex([1, 2, 3], 3));
+
+//Quiz no -7 ---Remove all duplicates from an array without built-in methods.
+let arr = ["apple", "mango", "apple", "orange", "mango", "mango", "orange"];
+
+function removeDuplicates(arr) {
+    let unique = [];
+    for (i = 0; i < arr.length; i++) {
+        if (unique.indexOf(arr[i]) === -1) {
+            unique.push(arr[i]);
+        }
+    }
+    return unique;
+}
+console.log(removeDuplicates(arr));
+
+//Quiz no -8 -
+//ascending order
+function sortAscending(arr) {
+    var done = false;
+    while (!done) {
+        done = true;
+        for (var i = 1; i < arr.length; i += 1) {
+            if (arr[i - 1] > arr[i]) {
+                done = false;
+                var tmp = arr[i - 1];
+                arr[i - 1] = arr[i];
+                arr[i] = tmp;
+            }
+        }
+    }
+
+    return arr;
+}
+var ascendingOrder = [12, 10, 15, 11, 14, 13, 16];
+sortAscending(ascendingOrder);
+console.log(ascendingOrder);
+
+//descending order
+function sortDescending(array) {
+    var done = false;
+    while (!done) {
+        done = true;
+        for (var i = 1; i < array.length; i += 1) {
+            if (array[i - 1] < array[i]) {
+                done = false;
+                var tmp = array[i - 1];
+                array[i - 1] = array[i];
+                array[i] = tmp;
+            }
+        }
+    }
+
+    return array;
+}
+var descendingOrder = [12, 10, 15, 11, 14, 13, 16];
+sortDescending(descendingOrder);
+console.log(descendingOrder);
+
+//Quiz no -9 ---Print all even numbers between 1 and 20 using a while loop.
+let even = 2;
+while (even <= 20) {
+    if (even % 2 == 0) {
+        console.log(even);
+    }
+    even++;
+}
+
+//Quiz no -10 ---Calculate the factorial of a number using a do-while loop.
+var i = 1, no, fact;
+fact = 1;
+no = Number(prompt());
+do {
+    fact = fact * i;
+    i++;
+}
+while (i <= no);
+console.log(`factorial of ${no} is ${fact}`)
+
+//Quiz no -11 ---Iterate through the properties of an object using a for-in loop.       
+const data = {
+    name: 'Mahrukh',
+    fatherName: 'Muhammad Waseem',
+    city: 'Karachi'
+}
+for (const obj in data) {
+    console.log(`${obj}: ${data[obj]}`)
+}
+
+//Quiz no -12 ---Loop through an array using a for-of loop and double each element. 
+var numbers = [2, 3, "5", "8"];
+
+for (var num of numbers) {
+    console.log("Each element of double is", num + num);
+}
+//Quiz no -13  ---Check if a number is even or odd and return a corresponding message.      
+const number = prompt("Enter a number: ");
+if (number % 2 == 0) {
+    console.log(number, "The number is even.");
+}
+else {
+    console.log(number, "The number is odd.");
+}
+
+//Quiz no -14 ---Find the maximum of three numbers using nested ternary operators
+var n1 = 15, n2 = 10, n3 = 3, max;
+max = (n1 > n2) ?
+    (n1 > n3 ? n1 : n3) :
+    (n2 > n3 ? n2 : n3);
+console.log("Largest number among " + n1 + ", " + n2 + " and " + n3 + " is " + max + ".");
+
+//Quiz no -15 ---Determine if a year is a leap year or not.
+function checkLeapYear(year) {
+    if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+        console.log(year + ' is a leap year');
+    } else {
+        console.log(year + ' is not a leap year');
+    }
+}
+const year = prompt('Enter a year:');
+
+checkLeapYear(year);
+
+    </script>
+</body>
+</html>
